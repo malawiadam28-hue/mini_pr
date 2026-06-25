@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OFPPT M105 – Mini-Projet JavaScript</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ========== PAGE LOGIN ========== -->
+    <div id="page-login" class="auth-page">
+      <div class="auth-card">
+        <div class="auth-logo">
+          <span class="logo-icon">🎓</span>
+          <h1>OFPPT</h1>
+          <p>M105 – Mini-Projet JavaScript</p>
+        </div>
+        <div class="form-group">
+          <label>Nom d'utilisateur</label>
+          <input type="text" id="login-username" placeholder="Entrez votre pseudo" autocomplete="username" />
+        </div>
+        <div class="form-group">
+          <label>Mot de passe</label>
+          <input type="password" id="login-password" placeholder="Entrez votre mot de passe" autocomplete="current-password" />
+        </div>
+        <div class="remember-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember-me" />
+            <span>Se Rappeler de moi</span>
+          </label>
+        </div>
+        <button id="btn-login" class="btn-primary">LOGIN</button>
+        <ul id="login-errors" class="error-list"></ul>
+        <p class="auth-link">Pas encore inscrit ? <a href="#" id="go-create">Créer un compte</a></p>
+      </div>
+    </div>
+
+    <!-- ========== PAGE CREATEACCOUNT ========== -->
+    <div id="page-create" class="auth-page hidden">
+      <div class="auth-card wide">
+        <div class="auth-logo">
+          <span class="logo-icon">🎓</span>
+          <h1>Créer un compte</h1>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Nom</label>
+            <input type="text" id="ca-nom" placeholder="Nom de famille" />
+          </div>
+          <div class="form-group">
+            <label>Prénom</label>
+            <input type="text" id="ca-prenom" placeholder="Prénom" />
+          </div>
+          <div class="form-group">
+            <label>Âge</label>
+            <input type="number" id="ca-age" placeholder="Âge" min="1" />
+          </div>
+          <div class="form-group">
+            <label>Pseudo</label>
+            <input type="text" id="ca-pseudo" placeholder="Nom d'utilisateur" />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="ca-email" placeholder="exemple@mail.com" />
+          </div>
+          <div class="form-group">
+            <label>Pays</label>
+            <input type="text" id="ca-pays" placeholder="Pays" />
+          </div>
+          <div class="form-group">
+            <label>Devise</label>
+            <input type="text" id="ca-devise" placeholder="Ex: MAD, EUR, USD" />
+          </div>
+          <div class="form-group">
+            <label>Couleur préférée</label>
+            <select id="ca-couleur">
+              <option value="maroon">Maroon</option>
+              <option value="navy">Navy</option>
+              <option value="teal">Teal</option>
+              <option value="darkslategray">Gris ardoise</option>
+              <option value="indigo">Indigo</option>
+              <option value="darkgreen">Vert foncé</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label>URL Avatar</label>
+            <input type="url" id="ca-avatar" placeholder="https://..." />
+          </div>
+          <div class="form-group full">
+            <label>URL Photo</label>
+            <input type="url" id="ca-photo" placeholder="https://..." />
+          </div>
+          <div class="form-group">
+            <label>Admin</label>
+            <select id="ca-admin">
+              <option value="false">Non</option>
+              <option value="true">Oui</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Mot de passe</label>
+            <input type="password" id="ca-password" placeholder="Mot de passe" />
+            <small class="hint">8 car. min, maj, min, chiffre, spécial</small>
+          </div>
+          <div class="form-group">
+            <label>Confirmer le mot de passe</label>
+            <input type="password" id="ca-password2" placeholder="Confirmer" />
+          </div>
+        </div>
+        <button id="btn-create" class="btn-primary">Créer le compte</button>
+        <ul id="create-errors" class="error-list"></ul>
+        <p class="auth-link"><a href="#" id="go-login">← Retour à la connexion</a></p>
+      </div>
+    </div>
+
+    <!-- ========== LAYOUT PRINCIPAL ========== -->
+    <div id="page-layout" class="hidden">
+
+      <!-- HEADER -->
+      <header id="main-header">
+        <div class="header-logo">
+          <span class="logo-icon">🎓</span>
+          <span class="logo-text">OFPPT</span>
+        </div>
+        <div class="header-user">
+          <img id="header-avatar" src="" alt="avatar" class="header-avatar" />
+          <span id="header-name"></span>
+        </div>
+        <button id="btn-logout" class="btn-logout">
+          <i class="fas fa-sign-out-alt"></i> Se Déconnecter
+        </button>
+      </header>
+
+      <!-- NAVIGATION BAR (horizontale) -->
+      <nav id="nav-bar">
+        <ul id="nav-list"></ul>
+      </nav>
+
+      <!-- BODY : Index + Content -->
+      <div class="layout-body">
+        <aside id="sidebar">
+          <ul id="sidebar-list"></ul>
+        </aside>
+        <main id="content-section">
+          <!-- Le contenu des pages est injecté ici -->
+        </main>
+      </div>
+
+      <!-- FOOTER -->
+      <footer id="main-footer">
+        <div class="footer-address">
+          <i class="fas fa-map-marker-alt"></i>
+          Hay Salam, Rabat – ISTA Hay Salam
+        </div>
+        <div class="footer-social">
+          <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://youtube.com" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div class="footer-copy">© 2024 OFPPT M105 – Khalid MZIBRA</div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
